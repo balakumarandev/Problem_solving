@@ -1,0 +1,22 @@
+class Solution {
+    public int eliminateMaximum(int[] dist, int[] speed) {
+        int output=0;
+        double[] timetoreach = new double[dist.length];
+            boolean firsttime = true;
+            int i=0;
+            while(i<dist.length){
+                timetoreach[i] = (double) dist[i] / speed[i];
+                i++;
+            }
+
+            Arrays.sort(timetoreach);
+            for(int k=0;k<timetoreach.length;k++){
+               if(timetoreach[k]<=k){
+                break;
+               }
+               output++;
+            }           
+            return output;      
+
+    }
+    }
