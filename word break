@@ -1,0 +1,15 @@
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {
+        boolean[] mem = new boolean[s.length()+1];
+        mem[0] = true;
+        for(int i=1;i<=s.length();i++){
+            for(int end = 0;end<i;end++){
+                if(mem[end] && wordDict.contains(s.substring(end,i))  ){
+                    mem[i] = true;
+                    break;
+                }                
+            }            
+        }
+        return mem[s.length()];
+    }
+}
