@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+
+public class Divisors {
+    public static void main(String[] args) {
+        int val = 36;
+        ArrayList<Integer> arr = new ArrayList<>();
+        int valsq = (int) Math.sqrt(val);
+        for(int i =1 ;i<=valsq;i++){
+                if(val%i==0){
+                    arr.add(i);
+                    int counterpart = val/i;
+                    if(i != counterpart ){
+                        arr.add(counterpart);}
+                }
+        }
+        System.out.print("Divisors of " + val + " are: ");
+        for (int divisor : arr) {
+            System.out.print(divisor + " ");
+        }
+        System.out.println();
+    }
+}
