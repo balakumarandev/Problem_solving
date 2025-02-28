@@ -1,0 +1,20 @@
+
+public class Solution {
+    public static int countDigits(int n){
+        // Write your code here.
+        int saved = n;
+        int result = 0;
+        
+
+        while(n>0){
+            int denominator = n%10;
+            if( denominator != 0 && saved % denominator == 0){
+                ++result;
+                
+
+            }
+            n /= 10;
+        }
+        return result;
+    }
+}
