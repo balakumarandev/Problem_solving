@@ -1,0 +1,15 @@
+public class fibonacci {
+    public static  int fibo(int val){
+        if(val==1){
+            return 1;
+        } else if (val <= 0) {
+            return 0;
+        } else{
+            return fibo(val-1) + fibo(val-2);
+        }
+    }
+    public static void main(String[] args) {
+        int result = fibo(6);
+        System.out.println(result);
+    }
+}
