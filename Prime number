@@ -1,0 +1,23 @@
+public class Prime_number {
+    public static void prime_num(int num){
+        int cnt = 0;
+        for(int i=1;i<=Math.sqrt(num);i++){
+            if(num % i == 0) {
+                cnt = cnt + 1;
+                if (num / i != i)
+                    cnt = cnt + 1;
+            }
+        }
+        if(cnt == 2){
+            System.out.println("prime number");
+        }
+        else {
+            System.out.println("Not a prime number");
+        }
+    }
+    public static void main(String[] args) {
+        prime_num(17);
+        prime_num(8);
+
+    }
+}
