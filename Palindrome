@@ -1,0 +1,19 @@
+public class paalindrome {
+    public static void checker(String val,int start, int end){
+        if(start > end){
+            System.out.println("true");
+        return ;}
+        if(val.charAt(start) != val.charAt(end)){
+                System.out.println("false");
+                return;
+            }
+        checker(val,++start,--end);
+        }
+
+    public static void main(String[] args) {
+        String bala = "bala";
+        String M = "malayalam";
+        checker(bala,0,bala.length()-1);
+        checker(M,0,M.length()-1);
+    }
+}
