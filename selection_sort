@@ -1,0 +1,24 @@
+public class selectionsort {
+    public  static void sorter(int[] arr){
+        for(int i=0;i<arr.length-1;i++){
+            int swap = arr[i];
+            int idx = i;
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[j] < swap){
+                    swap = arr[j];
+                    idx = j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = swap;
+            arr[idx] = temp;
+        }
+    }
+    public static void main(String[] args) {
+        int[] arr = {22,4,5,6,-3,8,99,10};
+        sorter(arr);
+        for(int k=0;k<arr.length;k++){
+            System.out.print(arr[k]+" ");
+        }
+    }
+}
