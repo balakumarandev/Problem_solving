@@ -1,0 +1,44 @@
+import java.util.Arrays;
+
+public class rotate_k_pos {
+
+    public static void reverse_left(int[] arr,int left, int right){
+        while(left <= right){
+            int tempo = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tempo;
+            left++;
+            right--;
+
+        }
+    }
+
+    public static void reverse_right(int[] arr,int left, int right){
+        while(left <= right){
+            int tempo = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tempo;
+            left++;
+            right--;
+
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int[] arr = {2,4,3,-8,5,55,12,45,6,6};
+        int k = 1;
+        System.out.println(Arrays.toString(arr));
+        reverse_left(arr,0,k-1);
+        reverse_left(arr,k,arr.length-1);
+        reverse_left(arr,0,arr.length-1);
+        System.out.println("after leftshift:");
+        System.out.println(Arrays.toString(arr));
+        arr = new int[]{2, 4, 3, -8, 5, 55, 12, 45, 6, 6};
+        reverse_right(arr,0,arr.length-1-k);
+        reverse_right(arr,arr.length-k,arr.length-1);
+        reverse_right(arr,0,arr.length-1);
+        System.out.println("after rightshift:");
+        System.out.println(Arrays.toString(arr));
+    }
+}
