@@ -1,0 +1,25 @@
+import java.util.Arrays;
+
+public class second_largest_ele_arr {
+    public static int finder(int[] arr){
+        int largest = Integer.MIN_VALUE;
+        int second_largest = Integer.MIN_VALUE;
+        for (int j : arr) {
+            if(largest < j ){
+                second_largest = largest;
+                largest = j;
+            }
+            else if(largest != j && second_largest < j){
+                second_largest = j;
+            }
+        }
+        return second_largest;
+    }
+    public static void main(String[] args) {
+        int[] arr={-1,4,5,-3,7,88,-88,405,3};
+        int largest = finder(arr);
+        System.out.println(Arrays.toString(arr));
+        System.out.println(largest);
+
+    }
+}
