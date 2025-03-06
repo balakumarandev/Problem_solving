@@ -1,0 +1,17 @@
+import java.util.Arrays;
+public class largest_ele_arr {
+    public static int finder(int[] arr){
+        int largest = Integer.MIN_VALUE;
+        for (int j : arr) {
+            largest = (j > largest) ? j : largest;
+        }
+        return largest;
+    }
+    public static void main(String[] args) {
+        int[] arr={-1,4,5,-3,7,88,-88,405,3};
+        int largest = finder(arr);
+        System.out.println(Arrays.toString(arr));
+        System.out.println(largest);
+
+    }
+}
