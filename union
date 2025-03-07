@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+
+public class find_union {
+    public static ArrayList<Integer> union(int[] a1, int[] a2) {
+        ArrayList<Integer> new_arr = new ArrayList<>();
+        int i=0,j=0;
+        int n = a1.length;
+        int m = a2.length;
+        while(i<n && j<m){
+            if(a1[i] <= a2[j]){
+                if(new_arr.size() == 0 || new_arr.getLast() != a1[i]){
+                    new_arr.add(a1[i]);
+                }
+                i++;
+            }
+            else{
+                if(new_arr.size() == 0 || new_arr.getLast() != a2[j]){
+                    new_arr.add(a2[j]);
+                }
+                j++;
+            }
+        }
+        while(i<n){
+            if(new_arr.getLast() != a1[i]){
+                new_arr.add(a1[i]);
+            }
+            i++;
+        }
+        while(j<m){
+            if(new_arr.getLast() != a2[j]){
+                new_arr.add(a2[j]);
+            }
+            j++;
+        }
+        return new_arr;
+    }
+
+    
+    public static void main(String[] args) {
+        int[] a1 = {1,2,3,4,5};
+        int[] a2 = {-1,1,2,6,7,8,9,10,10};
+        ArrayList<Integer> res = union(a1,a2);
+
+        for(int i:res){
+            System.out.print(i+" ");
+        }
+    }
+}
