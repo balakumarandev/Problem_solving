@@ -1,0 +1,31 @@
+public class longest_subarray_forK {
+
+    public static int helper(int[] arr,int k){
+        int j=0,i=0,cnt = 0, max = 0,sum=0;
+
+        while(j<arr.length){
+
+            if (sum<k) {
+                sum = sum + arr[j];
+                j++;
+            } else if (sum>k) {
+                sum = sum - arr[i];
+                i++;
+            }
+            else{
+                cnt = j-1+1;
+                if(cnt>max){
+                    max = cnt;
+                }
+                sum = sum + arr[j];
+                j++;
+            }
+        }
+        return max;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2,3,5};
+        System.out.println(helper(arr,5));
+    }
+}
