@@ -1,0 +1,36 @@
+import java.util.Arrays;
+
+public class sorting012 {
+    public static void main(String[] args) {
+        int[] arr = {1,2,2,0,1,0,2};
+        int idx = 0;
+        int zero = 0,one =0, two =0;
+        while(idx<arr.length){
+            if(arr[idx] == 0){
+                zero++;
+            } else if (arr[idx] == 1) {
+                one++;
+            } else if (arr[idx] == 2) {
+                two++;
+            }
+            else{
+                System.out.println("error");
+            }
+            idx++;
+        }
+        idx=0;
+        while(idx<zero){
+            arr[idx] = 0;
+            idx++;
+        }
+        while(idx<zero+one){
+            arr[idx]=1;
+            idx++;
+        }
+        while(idx<zero+one+two){
+            arr[idx] = 2;
+            idx++;
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+}
