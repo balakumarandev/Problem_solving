@@ -1,0 +1,36 @@
+public class rearrange_alternatively {
+
+    public static int[] Rearrange(int[] arr,int n) {
+        int[] pos = new int[n/2];
+        int[] neg = new int[n/2];
+        int k=0;
+        int l=0;
+        for(int i=0;i<n;i++){
+            if(arr[i]<0){
+                neg[k++] = arr[i];
+            }
+            else{
+                pos[l++] = arr[i];
+            }
+        }
+        k=0;
+        l=0;
+
+        for(int i=0;i<n/2;i++){
+            arr[i*2] = pos[k++];
+            arr[i*2+1] = neg[l++];
+        }
+        return arr;
+    }
+
+    public static void main(String[] args) {
+        int n = 4;
+        int[] arr = {1,2,-4,-5};
+        int[]ans= Rearrange(arr,n);
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(ans[i]+" ");
+        }
+
+    }
+}
