@@ -1,0 +1,24 @@
+import java.util.*;
+public class subarray_sum_equals_k {
+    public static int helper(int[] arr, int k){
+    int n = arr.length;
+    HashMap mpp = new HashMap();
+    int preSum = 0, cnt = 0;
+
+        mpp.put(0, 1);
+        for (int i = 0; i < n; i++) {
+        preSum += arr[i];
+        int remove = preSum - k;
+        cnt = cnt + (int) mpp.getOrDefault(remove, 0);
+        mpp.put(preSum, (int) mpp.getOrDefault(preSum, 0) + 1);
+    }
+        return cnt;
+}
+
+public static void main(String[] args) {
+    int[] arr = {3, 1, 2, 4};
+    int k = 6;
+    int cnt = helper(arr, k);
+    System.out.println(cnt);
+}
+}
