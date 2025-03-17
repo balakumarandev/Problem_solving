@@ -1,0 +1,22 @@
+public class kadane_algo {
+    public static void main(String[] args) {
+        int[] arr = {1,2,-3,0,-4,-5};
+        System.out.print("maxi subarray product is: ");
+        System.out.println(helper(arr));
+    }
+    public static int helper(int[] a){
+        int promax = a[0];
+        int promin = a[0];
+        int res = a[0];
+
+        for(int i=1;i<a.length;i++){
+            int t = Math.max(Math.max(promax*a[i],promin*a[i]), a[i]);
+            promin = Math.min(Math.min(promax*a[i],promin*a[i]), a[i]);
+            promax = t;
+            res = Math.max(res,promax);
+
+        }
+
+        return res;
+    }
+}
