@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
+public class occuringelements3divideslength {
+    public static void main(String[] args) {
+        int[] arr = {11, 33, 33, 11, 33, 11};
+        helper(arr);
+    }
+
+    public static void helper(int[] arr){
+        ArrayList<Integer> ans = new ArrayList<>();
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        int count = (int) (arr.length/3) + 1;
+
+        for(int i=0;i<arr.length;i++){
+            int value = hm.getOrDefault(arr[i],0);
+            hm.put(arr[i],value+1);
+
+
+            if(hm.get(arr[i]) == count){
+                ans.add(arr[i]);
+            }
+            if(ans.size() == 2)
+            {
+                break;
+            }
+        }
+
+        for (int i = 0; i < ans.size(); i++) {
+            System.out.println(ans.get(i) + " ");
+        }
+    }
+
+}
