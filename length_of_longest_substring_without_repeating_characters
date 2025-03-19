@@ -1,0 +1,24 @@
+import java.util.*;
+
+public class length_of_longest_substring_without_repeating_characters {
+    public static void main(String args[]){
+        System.out.println(helper("abcabcbb"));
+        System.out.println(helper("bbbbb"));
+    }
+        public static int helper(String s) {
+            HashMap < Character, Integer > hm = new HashMap < Character, Integer > ();
+
+            int l = 0, r = 0;
+            int n = s.length();
+            int len = 0;
+            while (r < n) {
+                if (hm.containsKey(s.charAt(r))){
+                    l = Math.max(hm.get(s.charAt(r)) + 1, l);
+                }
+                hm.put(s.charAt(r), r);
+                len = Math.max(len, r - l + 1);
+                r++;
+            }
+            return len;
+        }
+}
