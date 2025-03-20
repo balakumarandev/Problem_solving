@@ -1,0 +1,40 @@
+class Node{
+    int value;
+    Node next;
+
+    Node(int value){
+        this.value = value;
+        this.next = null;
+    }
+}
+
+
+public class deleting_node {
+    public static Node delTail(Node head){
+        if(head == null || head.next == null){
+            return null;
+        }
+
+        Node t = head;
+        while(t.next.next!= null){
+            t = t.next;
+        }
+        t.next  = null;
+        return head;
+    }
+    public static void main(String[] args){
+
+        Node head = new Node(2);
+        head.next = new Node(5);
+        head.next.next = new Node(8);
+        head.next.next.next = new Node(7);
+        head = delTail(head);
+        while(head!=null){
+            System.out.print(head.value+" ");
+            head = head.next;
+        }
+
+    }
+
+}
+
