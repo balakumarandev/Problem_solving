@@ -1,0 +1,31 @@
+class Node3{
+    int value;
+    Node3 next;
+
+    Node3(int val){
+        value = val;
+        next = null;
+    }
+
+}
+
+public class length_of_LL {
+
+    public static int helper(Node3 head){
+        Node3 t = head;
+        int count = 0;
+        while(t!=null){
+            count++;
+            t = t.next;
+        }
+        return count;
+    }
+
+    public static void  main(String[] args){
+        Node3 n1 = new Node3(20);
+        n1.next = new Node3(21);
+        n1.next.next = new Node3(23);
+        n1.next.next.next = new Node3(44);
+        System.out.println(helper(n1));
+    }
+}
